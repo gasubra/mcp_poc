@@ -1,0 +1,368 @@
+/**
+ * Global Styles for TRINDAI-1112 Login UI Application
+ * 
+ * Provides base styling, CSS reset, and global utilities
+ * for the login screen and authentication interface.
+ */
+
+/* CSS Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root Variables for TRINDAI-1112 Theme */
+:root {
+  /* Primary Color Palette */
+  --primary-blue: #667eea;
+  --primary-purple: #764ba2;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  /* Semantic Colors */
+  --success-color: #28a745;
+  --error-color: #e74c3c;
+  --warning-color: #f39c12;
+  --info-color: #17a2b8;
+  
+  /* Neutral Colors */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: #e1e1e1;
+  --background-light: #f8f9fa;
+  --background-white: #ffffff;
+  
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+  --radius-xl: 20px;
+  
+  /* Typography */
+  --font-family-primary: 'Arial', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* Base HTML and Body */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--gradient-primary);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+h5 { font-size: var(--font-size-base); }
+h6 { font-size: var(--font-size-sm); }
+
+p {
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+  color: var(--primary-purple);
+  text-decoration: underline;
+}
+
+/* Form Elements Base */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+input,
+select,
+textarea {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-base);
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Utility Classes for TRINDAI-1112 */
+
+/* Spacing Utilities */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+.p-5 { padding: var(--spacing-xl); }
+
+/* Text Utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--success-color); }
+.text-error { color: var(--error-color); }
+.text-warning { color: var(--warning-color); }
+
+.font-weight-normal { font-weight: 400; }
+.font-weight-bold { font-weight: 600; }
+.font-weight-bolder { font-weight: 700; }
+
+/* Display Utilities */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+/* Flexbox Utilities */
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.justify-content-start { justify-content: flex-start; }
+.justify-content-center { justify-content: center; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-between { justify-content: space-between; }
+.align-items-start { align-items: flex-start; }
+.align-items-center { align-items: center; }
+.align-items-end { align-items: flex-end; }
+
+/* Border Utilities */
+.border { border: 1px solid var(--border-color); }
+.border-0 { border: 0; }
+.border-top { border-top: 1px solid var(--border-color); }
+.border-bottom { border-bottom: 1px solid var(--border-color); }
+
+.rounded { border-radius: var(--radius-md); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+
+/* Shadow Utilities */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* Background Utilities */
+.bg-primary { background: var(--gradient-primary); }
+.bg-white { background: var(--background-white); }
+.bg-light { background: var(--background-light); }
+.bg-success { background: var(--success-color); }
+.bg-error { background: var(--error-color); }
+.bg-warning { background: var(--warning-color); }
+
+/* Width/Height Utilities */
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --font-size-3xl: 1.75rem;
+    --font-size-2xl: 1.375rem;
+    --spacing-xl: 1.5rem;
+    --spacing-xxl: 2rem;
+  }
+  
+  body {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-xl: 1rem;
+    --spacing-xxl: 1.5rem;
+  }
+}
+
+/* Focus Indicators for Accessibility */
+*:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none; /* Handled by individual component styles */
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  button,
+  input[type="submit"],
+  input[type="button"] {
+    border: 1px solid black;
+    background: white;
+  }
+}
+
+/* Custom Scrollbar for Webkit Browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Selection Styles */
+::selection {
+  background: var(--primary-blue);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary-blue);
+  color: white;
+}
